@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">${DB_URL}</property> <!-- Use DB_URL as an environment variable -->
+		<property name="connection.user">${DB_USERNAME}</property> <!-- Use DB_USERNAME as an environment variable -->
+		<property name="connection.password">${DB_PASSWORD}</property> <!-- Use DB_PASSWORD as an environment variable -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.dialect.storage_engine">innodb</property>
+
+		<mapping class="com.techBlog.entities.User"/>
+		<mapping class="com.techBlog.entities.Posts"/>
+		<mapping class="com.techBlog.entities.Category"/>
+		<mapping class="com.techBlog.entities.Likes"/>
+		<mapping class="com.techBlog.entities.ContactUs"/>
+	</session-factory>
+</hibernate-configuration>
